@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+ @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&display=swap');
+  html,
+  body
+  {
+
+
+	background-color: aliceblue;
+
+	background-image: url("../Media/background.3png.png");
+}
+
+contain {
+	text-align: center;
+}
+
+.formContener {
+	display: flex;
+	justify-content: center;
+}
+
+.form, .result {
+	border: 2px solid gray;
+	border-radius: 10px;
+	width: 30rem;
+	padding: 5px;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 16px;
+	margin-top: 2rem;
+	background-color: #387671;
+	margin-left: 10rem;
+}
+
+.form label {
+	width: 15rem;
+	height: 3rem;
+	margin: 5px;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 0px 0px 5px aliceblue;
+
+}
+.form button{
+	width: 10rem;
+	margin: 5px;
+	margin-top: 10px;
+	height: 3rem;
+	font-family: 18px;
+	font-weight: bold;
+	border-color: transparent;
+}
+
+#cbnid,
+.CBEDdetails,
+.checkbyquantity {
+	display: none;
+}
+
+.result table thead tr th{
+	padding: 10px;
+	font-family: 'Times New Roman', Times, serif;
+}
+.result table tbody tr td{
+	padding: 10px;
+	font-family: 'Times New Roman', Times, serif;
+}

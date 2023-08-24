@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+html, body{
+	font-family: 'Times New Roman', Times, serif;
+}
+.label{
+	width: 18rem;	
+}
+.col-md-12{
+	margin:10px;
+}

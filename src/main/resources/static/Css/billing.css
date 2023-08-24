@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+html,body{
+	background-color: aliceblue;
+
+background-image: url("../Media/background.3png.png");
+}
+#insertBody{
+	padding: 50px;
+}
+#dataContainer{
+	display: flex;
+}
+#searchContainer{
+	margin-left: 15px;
+	width: 40%;
+}
+#SearchResult{
+	margin-top:10px ;
+	height: 30rem;
+	width: 45%;
+	overflow-y: scroll;
+	border-radius: 10px;
+}
+#medicineList{
+	margin: 10px;
+	background-color: rgb(216, 216, 216);
+	border-radius: 10px;
+}
+#medicineList table thead tr th{
+	padding: 15px;
+	text-align: center;
+	font-family: 'Times New Roman', Times, serif;
+}
+#medicineList tbody tr td{
+	padding: 15px;
+	text-align: center;
+	font-family:  'Times New Roman', Times, serif
+}
+#selectDatas{
+	width: 45%;
+	height: 30rem;
+	margin-left: 5rem;
+	overflow-y: scroll;
+}
+.mybtn{
+	display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+.mybtn button{
+	width: 8rem;
+	border-radius: 10px;
+	font-size: 18px;
+	font-family: 'Times New Roman', Times, serif;
+	margin:10px;
+	border-color: aliceblue;
+}
+.mybtn button a{
+	text-decoration: none;
+	color: black;
+}
