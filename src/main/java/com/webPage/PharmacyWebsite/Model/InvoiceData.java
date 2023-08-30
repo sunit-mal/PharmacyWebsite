@@ -96,7 +96,7 @@ public class InvoiceData {
 
 	//	Searching Process
 	public boolean nameMatch(String name) {
-		name.toLowerCase();
+		String name = name.toLowerCase();
 		String Orginal = getCustomerName().toLowerCase();
 		return Orginal.contains(name);
 	}
