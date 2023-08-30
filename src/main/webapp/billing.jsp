@@ -69,7 +69,7 @@
 				<form class="d-flex" action="/SearchMedicine" method="get">
 					<input class="form-control me-2" type="search" placeholder="Search"
 						aria-label="Search" name="searchData">
-					<button class="btn btn-outline-success" type="submit">Search</button>
+					<button class="btn btn-outline-success" type="submit" id="search">Search</button>
 				</form>
 			</div>
 			<div id="dataContainer">

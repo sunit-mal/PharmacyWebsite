@@ -113,8 +113,6 @@
 														<input type="password" class="form-control cp3"
 															placeholder="Enter Password again" name="pass2" required>
 													</div>
-													<br> <span id="StrengthDisp"
-														class="badge displayBadge">Weak</span> <br>
 												</div>
 											</div>
 
@@ -123,7 +121,7 @@
 													<div class="col-md-12">
 														<div class="form-group footerGp">
 															<button type="submit"
-																class="btn btn-secondary submit p-3">Create an
+																class="btn btn-primary submit p-3">Create an
 																account</button>
 															<a href="/loginPage" class="toLogin"
 																style="position: relative; left: 10%; text-decoration: none;">Already

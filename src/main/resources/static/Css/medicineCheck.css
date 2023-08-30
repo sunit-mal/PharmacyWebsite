@@ -3,11 +3,10 @@
   html,
   body
   {
-
-
 	background-color: aliceblue;
-
-	background-image: url("../Media/background.3png.png");
+	background-image: url("../Media/MedicineEntry.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 contain {
@@ -27,8 +26,10 @@ contain {
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 16px;
 	margin-top: 2rem;
-	background-color: #387671;
-	margin-left: 10rem;
+	background-color: #396bcfb7;
+	margin-left: 8rem;
+	border: none;
+	color: white;
 }
 
 .form label {
@@ -38,7 +39,7 @@ contain {
 	margin-top: 10px;
 	font-size: 20px;
 	font-weight: bold;
-	text-shadow: 0px 0px 5px aliceblue;
+	text-shadow: 0px 0px 5px #000000;
 
 }
 .form button{
@@ -60,8 +61,15 @@ contain {
 .result table thead tr th{
 	padding: 10px;
 	font-family: 'Times New Roman', Times, serif;
+	text-shadow: 0px 0px 5px #000000;
 }
 .result table tbody tr td{
 	padding: 10px;
 	font-family: 'Times New Roman', Times, serif;
+	text-shadow: 0px 0px 5px #000000;
+}
+
+.result{
+	overflow-y: scroll;
+	height: 20rem;
 }

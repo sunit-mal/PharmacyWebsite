@@ -1,10 +1,24 @@
 @charset "ISO-8859-1";
 html, body{
 	font-family: 'Times New Roman', Times, serif;
+	background-color: aliceblue;
+	background-image: url("../Media/login.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	color: white;
 }
 .label{
 	width: 18rem;	
 }
 .col-md-12{
 	margin:10px;
+}
+.half{
+	margin-left: -18rem;
+	margin-top: 3rem;
+}
+.pagebg a{
+	text-decoration: none;
+	color: azure;
+	text-shadow: 0px 0px 2px black;
 }

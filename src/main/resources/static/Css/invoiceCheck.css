@@ -1,4 +1,12 @@
 @charset "ISO-8859-1";
+html,
+body {
+	background-color: aliceblue;
+	background-image: url("../Media/receipt.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}
 
 #pageContain {
 	margin: 8rem;

@@ -1,61 +1,90 @@
 @charset "ISO-8859-1";
-html,body{
-	background-color: aliceblue;
 
-background-image: url("../Media/background.3png.png");
+html,
+body {
+	background-color: aliceblue;
+	background-image: url("../Media/billing.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
-#insertBody{
+
+#insertBody {
 	padding: 50px;
 }
-#dataContainer{
+
+#dataContainer {
 	display: flex;
 }
-#searchContainer{
+
+#searchContainer {
 	margin-left: 15px;
 	width: 40%;
 }
-#SearchResult{
-	margin-top:10px ;
+
+#SearchResult {
+	margin-top: 10px;
 	height: 30rem;
 	width: 45%;
 	overflow-y: scroll;
 	border-radius: 10px;
 }
-#medicineList{
+
+#medicineList {
+	box-shadow: 0px 0px 10px black;
 	margin: 10px;
-	background-color: rgb(216, 216, 216);
+	background-color: #862b079c;
 	border-radius: 10px;
+	color: white;
+	text-shadow: 0px 0px 4px black;
 }
-#medicineList table thead tr th{
+
+#medicineList table thead tr th {
 	padding: 15px;
 	text-align: center;
 	font-family: 'Times New Roman', Times, serif;
 }
-#medicineList tbody tr td{
+
+#medicineList tbody tr td {
 	padding: 15px;
 	text-align: center;
-	font-family:  'Times New Roman', Times, serif
+	font-family: 'Times New Roman', Times, serif
 }
-#selectDatas{
+#search{
+	color: aliceblue;
+	background-color: #f0f8ff2e;
+}
+#search:hover{
+	color: #00ff00;
+	text-shadow: 0px 0px 4px black;
+	background-color: #f0f8ff2e;
+	border: 1px solid #00ff00;
+	box-shadow: 0px 0px 5px yellow;
+}
+#selectDatas {
 	width: 45%;
 	height: 30rem;
 	margin-left: 5rem;
 	overflow-y: scroll;
 }
-.mybtn{
+
+.mybtn {
 	display: flex;
-    justify-content: flex-end;
-    margin: 10px;
+	justify-content: flex-end;
+	margin: 10px;
 }
-.mybtn button{
+
+.mybtn button {
 	width: 8rem;
 	border-radius: 10px;
 	font-size: 18px;
 	font-family: 'Times New Roman', Times, serif;
-	margin:10px;
-	border-color: aliceblue;
+	margin: 10px;
+	background-color: aliceblue;
+	border: none;
+	box-shadow: 2px 1px 0px black;
 }
-.mybtn button a{
+
+.mybtn button a {
 	text-decoration: none;
 	color: black;
 }
