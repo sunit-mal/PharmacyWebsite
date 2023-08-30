@@ -12,9 +12,11 @@ import com.webPage.PharmacyWebsite.Model.InvoiceData;
 import com.webPage.PharmacyWebsite.Model.MedicineEntryData;
 import com.webPage.PharmacyWebsite.Model.ReceiptGenaration;
 import com.webPage.PharmacyWebsite.Model.SellMedicine;
+import com.webPage.PharmacyWebsite.Model.notification;
 import com.webPage.PharmacyWebsite.Service.InvoiceService;
 import com.webPage.PharmacyWebsite.Service.MedicineEntryService;
 import com.webPage.PharmacyWebsite.Service.ReceiptGenarationService;
+import com.webPage.PharmacyWebsite.Service.notificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +33,9 @@ public class InvoiceGenaretionService {
 	@Autowired
 	private ReceiptGenarationService receiptGenarationService;
 
+	@Autowired
+	private notificationService notificationService;
+	
 	@RequestMapping("/invoiceGen")
 	public String invoiceGen(HttpServletRequest request, HttpSession session) {
 
@@ -116,8 +121,12 @@ public class InvoiceGenaretionService {
 	public void updateNew(int id, int quantity) {
 		MedicineEntryData objData = medicineEntryService.get(id);
 		MedicineEntryData newdata = new MedicineEntryData();
-		if (objData.getQuantity() - quantity == 0) {
+		if (objData.getQuantity() - quantity <= 0) {
+			notification notify = new notification();
+			notify.setMedicineName(objData.getMedicineName());
+			notificationService.save(notify);
 			medicineEntryService.delete(id);
+			
 		} else {
 
 			newdata.setMedicineName(objData.getMedicineName());

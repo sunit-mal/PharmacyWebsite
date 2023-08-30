@@ -5,14 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.webPage.PharmacyWebsite.Model.InvoiceData;
 import com.webPage.PharmacyWebsite.Model.MedicineEntryData;
 import com.webPage.PharmacyWebsite.Model.ReceiptGenaration;
+import com.webPage.PharmacyWebsite.Model.notification;
 import com.webPage.PharmacyWebsite.Service.InvoiceService;
 import com.webPage.PharmacyWebsite.Service.MedicineEntryService;
 import com.webPage.PharmacyWebsite.Service.ReceiptGenarationService;
+import com.webPage.PharmacyWebsite.Service.notificationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -28,15 +31,19 @@ public class ControllerClass {
 
 	@Autowired
 	private InvoiceService invoiceService;
-	
+
+	@Autowired
+	private notificationService notificationService;
+
 	@RequestMapping("/")
-	public String index(HttpServletRequest request,HttpSession session) {
+	public String index(HttpServletRequest request, HttpSession session) {
+		getNotification(request, session);
 		session.setAttribute("massage", "");
 		return "index";
 	}
 
 	@RequestMapping("/entry")
-	public String medicineEntry(HttpServletRequest request,HttpSession session) {
+	public String medicineEntry(HttpServletRequest request, HttpSession session) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/loginPage";
 		}
@@ -49,7 +56,7 @@ public class ControllerClass {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/loginPage";
 		}
-		
+
 		receiptGenarationService.removeAll();
 		String nameString = request.getParameter("searchData");
 		if (nameString == null)
@@ -105,7 +112,7 @@ public class ControllerClass {
 
 		return "medicineCheck";
 	}
-	
+
 	@RequestMapping("/signupPage")
 	public String signupPage(HttpServletRequest request, HttpSession session) {
 		if (session.getAttribute("user") != null) {
@@ -113,7 +120,7 @@ public class ControllerClass {
 		}
 		return "signup";
 	}
-	
+
 	@RequestMapping("/loginPage")
 	public String loginPage(HttpServletRequest request, HttpSession session) {
 		if (session.getAttribute("user") != null) {
@@ -121,29 +128,57 @@ public class ControllerClass {
 		}
 		return "login";
 	}
-	
+
 	@RequestMapping("/invoice")
 	public String invoice(HttpServletRequest request) {
 		return "Invoice";
 	}
-	
+
 	@RequestMapping("/invoiceCheck")
-	public String invoiceCheck(HttpServletRequest request,HttpSession session) {
-		
+	public String invoiceCheck(HttpServletRequest request, HttpSession session) {
+
 		if (session.getAttribute("user") == null) {
 			return "redirect:/loginPage";
 		}
 		List<InvoiceData> allDatas = invoiceService.getInvoicedata();
-		ArrayList<ArrayList<String>> dataPassList = new ArrayList<>();		
+		ArrayList<ArrayList<String>> dataPassList = new ArrayList<>();
 		for (InvoiceData data : allDatas) {
-				ArrayList<String> tempArrayList = new ArrayList<>();
-				tempArrayList.add(data.getCustomerName());
-				tempArrayList.add(data.getContectNumber());
-				tempArrayList.add(data.getVisitDate());
-				tempArrayList.add(data.getUuid());		
-				dataPassList.add(tempArrayList);
+			ArrayList<String> tempArrayList = new ArrayList<>();
+			tempArrayList.add(data.getCustomerName());
+			tempArrayList.add(data.getContectNumber());
+			tempArrayList.add(data.getVisitDate());
+			tempArrayList.add(data.getUuid());
+			dataPassList.add(tempArrayList);
 		}
 		session.setAttribute("CustomerInvoice", dataPassList);
 		return "invoiceCheck";
+	}
+
+	public void getNotification(HttpServletRequest request, HttpSession session) {
+		List<notification> allNotifications = notificationService.getList();
+		ArrayList<ArrayList<String>> allNotification = new ArrayList<>();
+		if (allNotifications.isEmpty()) {
+			ArrayList<String> tempArrayList = new ArrayList<>();
+			String massage = " ";
+			tempArrayList.add(massage);
+			allNotification.add(tempArrayList);
+		} else {
+			for (notification arrayList : allNotifications) {
+				ArrayList<String> tempArrayList = new ArrayList<>();
+				String massage = "Your Madicine " + arrayList.getMedicineName() + " is out of stock";
+				tempArrayList.add(massage);
+				tempArrayList.add(Integer.toString(arrayList.getId()));
+				allNotification.add(tempArrayList);
+			}
+		}
+		session.setAttribute("notifications", allNotification);
+		session.setAttribute("notficationCount", allNotifications.size());
+	}
+	
+	@Transactional
+	@RequestMapping("/makeAsRead/{id}")
+	public String makeNotificationAsRead(HttpServletRequest request, HttpSession session, @PathVariable String id) {
+		notificationService.delete(Integer.valueOf(id));
+		return "redirect:/";
 	}
 }
