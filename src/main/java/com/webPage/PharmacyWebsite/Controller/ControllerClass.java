@@ -161,6 +161,7 @@ public class ControllerClass {
 			ArrayList<String> tempArrayList = new ArrayList<>();
 			String massage = " ";
 			tempArrayList.add(massage);
+			tempArrayList.add("0");
 			allNotification.add(tempArrayList);
 		} else {
 			for (notification arrayList : allNotifications) {
