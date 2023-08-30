@@ -63,19 +63,21 @@
 			</div>
 		</div>
 		<div id="notification" class="active">
+		<% int count=Integer.valueOf(session.getAttribute("notficationCount").toString());%>
 		<%ArrayList<ArrayList<String>> notification = (ArrayList<ArrayList<String>>) session.getAttribute("notifications"); %>
 			<div class="notification fa fa-bell" style="font-size: 24px"
 				onclick="notificationPanel()"></div>
 			<span class="badge"><%= session.getAttribute("notficationCount") %></span>
 			<div id="contains" onmouseleave="notificationPanel()">
 			<%
+			if(count >0){
 			for(ArrayList<String> i : notification){
 			%>
 			<h6>
 			<span><%=i.get(0) %></span>
 			<a href="/makeAsRead/<%=i.get(1)%>" type="button">Make as read</a>
 			</h6>
-			<%} %>
+			<%}} %>
 			</div>
 		</div>
 	</nav>
