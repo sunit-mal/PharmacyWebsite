@@ -88,7 +88,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 - [Sunit Mal](https://github.com/sunit-mal)
 - [Rohit Guin](https://github.com/AIROHIT)
-- [Abhishek Gope](https://github.com/Abhishek-gop)
+- [Abhishek Gope](https://github.com/mr-abhishek-gope)
 
 We appreciate the hard work and dedication of our project creators and contributors. Thank you for your support in making this project better!
 
